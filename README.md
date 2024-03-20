@@ -1,2 +1,2 @@
 # WebScraper
-Personally built Web Scraper in Python.
+Personal Web Scraper project in Python.
