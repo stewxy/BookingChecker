@@ -1,5 +1,4 @@
 import time
-
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -11,10 +10,6 @@ payload = {
     'LicenceVersion': '-',
     'LastName': '-',
     'DateOfBirth': '-',
-}
-
-headers_ = {
-    "Content-Type": "application/json"
 }
 
 available_times = []
@@ -49,28 +44,20 @@ time.sleep(3)
 (browser.find_element(by=By.XPATH, value="//*[contains(text(), '-')]")).click()
 (browser.find_element(by=By.XPATH, value="//*[contains(text(), '-')]")).click()
 
+# Check Calender
+# for i in range(4):
+#     (browser.find_element(by=By.CLASS_NAME, value="ui-datepicker-next")).click()
 
-input("Press ENTER to exit\n")
+table = browser.find_element(by=By.TAG_NAME, value="tbody")
+for row in table.find_elements(by=By.XPATH, value=".//tr"):
+    print([td.text for td in row.find_elements(by=By.XPATH, value=".//td[@class='ui-state-disabled']")])
 
-# while True:
-#     pass
+# td = browser.find_elements(by=By.TAG_NAME, value="td")
+# for x in td:
+#     # print('$', x.get_attribute('outerHTML'), '$')
+#     if x.find_element(by=By.XPATH, value="//td[@class='ui-state-disabled']"):
+#         available_times.append(x.text)
+# print(list(filter(None, available_times)))
 
-
-# print(browser.text)
-# browser.close()
-# quit()
-
-# r = requests.post(login_url, json=payload, headers=headers_)
-# print(r.text)
-# print(r.status_code)
-
-# print(r.content)
-
-# with requests.Session() as s:
-#     p = s.post(login_url, data=payload)
-#     print(p.text)
-#     print(p.status_code)
-#     print(p.content)
-#
-#     r = s.get('https://online.nzta.govt.nz/licence-test/booking/eligibility')
-#     print(r.text)
+while True:
+    pass
