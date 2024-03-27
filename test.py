@@ -1,8 +1,6 @@
 import time
-import requests
-from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver import Chrome, Keys
+from selenium.webdriver import Keys, ChromeOptions
 from selenium.webdriver.common.by import By
 
 payload = {
@@ -15,13 +13,16 @@ payload = {
 available_times = []
 
 login_url = 'https://online.nzta.govt.nz/licence-test/identification'
+user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
 
-opts = webdriver.ChromeOptions()
-opts.headless = True
-driver = Chrome(options=opts)
+options = ChromeOptions()
+options.add_argument(f'user-agent={user_agent}')
+options.add_argument("--headless=new")
+options.add_argument("--window-size=1920x1080")
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-gpu')
 
-assert opts.headless
-browser = Chrome(options=opts)
+browser = webdriver.Chrome(options=options)
 browser.get(login_url)
 
 # Login Info
@@ -57,14 +58,3 @@ if len(available_times) == 0:
     print("No Available Times")
 else:
     print(available_times)
-
-# td = browser.find_elements(by=By.TAG_NAME, value="td")
-# for x in td:
-#     # print('$', x.get_attribute('outerHTML'), '$')
-#     if x.find_element(by=By.XPATH, value="//td[@class='ui-state-disabled']"):
-#         available_times.append(x.text)
-# print(list(filter(None, available_times)))
-
-
-while True:
-    pass
