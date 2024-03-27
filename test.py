@@ -50,7 +50,8 @@ time.sleep(3)
 
 table = browser.find_element(by=By.TAG_NAME, value="tbody")
 for row in table.find_elements(by=By.XPATH, value=".//tr"):
-    print([td.text for td in row.find_elements(by=By.XPATH, value=".//td[@class='ui-state-disabled']")])
+    available_times += [td.text for td in row.find_elements(by=By.XPATH, value=".//td[@class!='ui-state-disabled']") if td.text != ""]
+print(available_times)
 
 # td = browser.find_elements(by=By.TAG_NAME, value="td")
 # for x in td:
@@ -58,6 +59,7 @@ for row in table.find_elements(by=By.XPATH, value=".//tr"):
 #     if x.find_element(by=By.XPATH, value="//td[@class='ui-state-disabled']"):
 #         available_times.append(x.text)
 # print(list(filter(None, available_times)))
+
 
 while True:
     pass
