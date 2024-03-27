@@ -48,8 +48,8 @@ time.sleep(3)
 for i in range(4):
     table = browser.find_element(by=By.TAG_NAME, value="tbody")
     for row in table.find_elements(by=By.XPATH, value=".//tr"):
-        available_times += [td.text for td in row.find_elements(by=By.XPATH, value=".//td[@class!='ui-state-disabled']") if td.text != ""]
-    print(available_times)
+        month = browser.find_element(by=By.CLASS_NAME, value="ui-datepicker-title")
+        available_times += [[month.text, td.text] for td in row.find_elements(by=By.XPATH, value=".//td[@class!='ui-state-disabled']") if td.text != ""]
     time.sleep(1)
     (browser.find_element(by=By.CLASS_NAME, value="ui-datepicker-next")).click()
 
