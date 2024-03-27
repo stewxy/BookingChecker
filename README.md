@@ -10,3 +10,4 @@ Software that automates the process of checking for available time slots when bo
   - Use dynamic values for filling in the login info and desired location.
   - Implement GUI or input fields so the user can provide data without having to access code.
   - Implement more options for users, such as rescheduling or cancelling their booking.
+  - Use a database to store login info and location data.
