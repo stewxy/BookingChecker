@@ -1,8 +1,7 @@
-# WebScraper
-Personal Web Scraping/Automation projects in Python.
+# booking.py<br />
+Software that automates the process of checking for available time slots when booking/rescheduling your license. The program accesses the licence booking login page. It automates all searching processes for available time slots, including logging in, filtering locations and displaying available slots in the next four months. However, at this stage, users must manually hardcode their login info and booking location.  
 
-## booking.py<br />
-Software that automates the process of checking for available time slots when booking/rescheduling your license. The program accesses the licence booking login page. It automates all searching processes for available time slots, including logging in, filtering locations and displaying available slots in the next four months. However, at this stage, users must manually hardcode their login info and booking location.
+_Note: This project was created with the intention of self-learning web scraping and automation concepts_
 - ### Tech Stack<br />
   - Python 3.10
   - Selenium 4.18
